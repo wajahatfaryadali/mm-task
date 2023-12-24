@@ -9,12 +9,32 @@ import { routeConstant } from '../../../routes/routeConstants';
 import CustomSelect from '../../Atoms/CustomSelect/CustomSelect';
 
 function RegisterForm(props) {
+  const countryList = ['Pakistan', 'England', 'France', 'Australia']
   const {
     width = '358px',
+    inputVal,
+    setInputVal,
+    handleSubmit,
+    error,
+    setError,
+    loading
   } = props;
 
+  // console.log('**** error *** ', error)
+  const handleChange = (e) => {
+    // console.log('e.target.ide.target.ide.target.id', e.target.id)
+    setInputVal({
+      ...inputVal,
+      [e.target.id]: e.target.value
+    })
+    setError({
+      ...error,
+      [e.target.id]: false
+    })
+  }
+
   return (
-    <Box width={width} component={'form'} textAlign={'center'}>
+    <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
       <Typography variant='h1' textTransform={'capitalize'} mb={'64px'}>
         create account
       </Typography>
@@ -22,24 +42,44 @@ function RegisterForm(props) {
         type={'text'}
         name={text.name}
         placeholder={'Name'}
+        required
+        value={inputVal.name}
+        error={error.name}
+        onChange={handleChange}
       />
       <InputField
         type={text.email}
         placeholder={'Email'}
+        required
+        value={inputVal.email}
+        error={error.email}
+        onChange={handleChange}
       />
       <InputField
         type={text.password}
         placeholder={'Password'}
         autoComplete={'password'}
+        required
+        value={inputVal.password}
+        error={error.password}
+        onChange={handleChange}
       />
       <InputField
         type={text.password}
         name={text.confirmPassword}
         placeholder={'Confirm Password'}
         autoComplete={'password'}
+        required
+        value={inputVal.confirmPassword}
+        error={error.confirmPassword}
+        onChange={handleChange}
       />
-      <CustomSelect />
-      <Button variant='contained' fullWidth sx={{ mt: '32px' }}>
+      <CustomSelect
+        countryList={countryList}
+        value={inputVal.country}
+        setInputVal={setInputVal}
+      />
+      <Button variant='contained' fullWidth sx={{ mt: '32px' }} type='submit'>
         Register
       </Button>
       <OrDivider />

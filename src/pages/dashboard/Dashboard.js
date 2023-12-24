@@ -5,7 +5,7 @@ import CPagination from '../../components/Atoms/CustomPagination/CPagination'
 
 const Dashboard = () => {
   return (
-    <Container
+    <Container component={'div'}
       sx={{ maxWidth: '1366px', height: '100vh', pt: '32px' }}
     >
       <Grid Container>

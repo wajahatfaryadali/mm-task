@@ -10,7 +10,7 @@ import { text } from '../constants/strings'
 
 export const getIcon = (type) => {
 
-    console.log('type check ******* ', type)
+    // console.log('type check ******* ', type)
     switch (type) {
         case text.email:
             return email;

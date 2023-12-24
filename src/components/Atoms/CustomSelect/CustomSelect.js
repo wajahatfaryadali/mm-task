@@ -9,17 +9,20 @@ import { getIcon } from '../../../utils/helpers/getIcons';
 import { text } from '../../../utils/constants/strings';
 import classes from './index.module.css'
 const CustomSelect = (props) => {
-
-    const [age, setAge] = useState('');
     const [open, setOpen] = useState(false);
-
     const {
-        menuList,
+        setInputVal,
+        countryList,
+        value
     } = props
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setInputVal(prevState => ({
+            ...prevState,
+            country: event.target.value
+        }))
     };
+
     const handleOpen = () => setOpen(!open)
 
     return (
@@ -29,10 +32,10 @@ const CustomSelect = (props) => {
                 select
                 open={open}
                 onClick={handleOpen}
-                
+                value={value}
                 placeholder='Country'
-
-                sx={{ textAlign: 'left'}}
+                onChange={handleChange}
+                sx={{ textAlign: 'left' }}
                 InputProps={{
                     startAdornment:
                         <InputAdornment position="start">
@@ -49,9 +52,9 @@ const CustomSelect = (props) => {
             //     ),
             // }}
             >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                {countryList.map((country, i) =>
+                    <MenuItem key={i} value={country}>{country}</MenuItem>
+                )}
             </TextField>
         </Box>
     )
