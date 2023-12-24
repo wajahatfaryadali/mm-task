@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin: 24px 0px 24px
+}
+
+.divider {
+    width: 93px;
+    margin: 0;
+    border-color: #E6E9FA
+}
