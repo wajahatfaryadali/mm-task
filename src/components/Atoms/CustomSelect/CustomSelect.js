@@ -32,31 +32,25 @@ const CustomSelect = (props) => {
                 select
                 open={open}
                 onClick={handleOpen}
-                value={value}
-                placeholder='Country'
+                value={value ? value : 0}
                 onChange={handleChange}
-                sx={{ textAlign: 'left' }}
+                sx={{ textAlign: 'left', color: 'red' }}
                 InputProps={{
                     startAdornment:
                         <InputAdornment position="start">
                             <img src={getIcon(text.countrySelect)} className='icon-width' />
                         </InputAdornment>,
+
                 }}
-            // SelectProps={{
-            //     IconComponent: () => (
-            //         <InputAdornment position="end">
-            //             <Box component={'div'} className={`${classes.iconContainer} alignCenterUsingFlex`}>
-            //                 <img src={getIcon(text.selectArrows).arrowDown} style={{ width: '15px', height: '7.5px', margin: 'atuo' }} />
-            //             </Box>
-            //         </InputAdornment>
-            //     ),
-            // }}
             >
+                <MenuItem value={0} disabled>
+                    {"Select Country"}
+                </MenuItem>
                 {countryList.map((country, i) =>
                     <MenuItem key={i} value={country}>{country}</MenuItem>
                 )}
             </TextField>
-        </Box>
+        </Box >
     )
 }
 

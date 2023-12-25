@@ -24,14 +24,22 @@ function RegisterForm(props) {
   // console.log('**** error *** ', error)
   const handleChange = (e) => {
     // console.log('e.target.ide.target.ide.target.id', e.target.id)
-    setInputVal({
-      ...inputVal,
-      [e.target.id]: e.target.value
-    })
-    setError({
-      ...error,
-      [e.target.id]: false
-    })
+    if (e.target.id === 'country' && e.target.value === 0) {
+      setInputVal({
+        ...inputVal,
+        country: ""
+      })
+    } else {
+      setInputVal({
+        ...inputVal,
+        [e.target.id]: e.target.value
+      })
+      setError({
+        ...error,
+        [e.target.id]: false
+      })
+    }
+
   }
 
   return (

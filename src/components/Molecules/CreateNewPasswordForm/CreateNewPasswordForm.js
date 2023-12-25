@@ -27,7 +27,6 @@ function CreateNewPasswordForm(props) {
         })
     }
 
-
     return (
         <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
             {/* in design there is written Forgot Password but what about Reset Password :) */}
