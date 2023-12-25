@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+### Deployed on vercel
+- [Project Live Link](https://mm-task.vercel.app/login)
+
 ### Node js version
     node v 20.10.0
 ### pkges installed list
