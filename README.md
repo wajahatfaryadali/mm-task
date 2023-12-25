@@ -1,7 +1,10 @@
 # Getting Started with Create React App
 
 ### Deployed on vercel
-- [Project Live Link](https://mm-task.vercel.app/login)
+- [Vercel](https://mm-task.vercel.app/login)
+
+### Deployed on netlify
+- [Netlify](https://dashing-banoffee-fde811.netlify.app/login))
 
 ### Node js version
     node v 20.10.0
