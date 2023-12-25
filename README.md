@@ -6,7 +6,9 @@
 - [Material UI](https://mui.com/material-ui/getting-started/installation/)
 - [React Router](https://reactrouter.com/en/main/start/tutorial)
 - [OTP](https://www.npmjs.com/package/react-otp-input)
-- [OTP](https://www.npmjs.com/package/react-otp-input)
+- [React Toaster](https://fkhadra.github.io/react-toastify/introduction/)
+- [Redux/toolkit](https://redux-toolkit.js.org)
+- [Redux Persist](https://www.npmjs.com/package/redux-persist#basic-usage)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

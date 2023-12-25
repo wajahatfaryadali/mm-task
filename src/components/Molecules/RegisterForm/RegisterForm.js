@@ -17,7 +17,7 @@ function RegisterForm(props) {
     handleSubmit,
     error,
     setError,
-    loading
+    isPasswordSame
   } = props;
 
   // console.log('**** error *** ', error)
@@ -73,6 +73,7 @@ function RegisterForm(props) {
         value={inputVal.confirmPassword}
         error={error.confirmPassword}
         onChange={handleChange}
+        isPasswordSame={isPasswordSame}
       />
       <CustomSelect
         countryList={countryList}

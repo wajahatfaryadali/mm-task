@@ -4,27 +4,24 @@ import InputField from '../../Atoms/InputField/InputField';
 import OrDivider from '../../Atoms/OrDivider/OrDivider';
 
 import { text } from '../../../utils/constants/strings';
+import { routeConstant } from '../../../routes/routeConstants';
+import { useNavigate } from 'react-router-dom';
 
 function ForgotPasswordForm(props) {
     const {
         width = '417px',
-        inputVal,
-        setInputVal,
         handleSubmit,
+        email,
+        setEmail,
         error,
         setError,
-        loading
     } = props;
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
-        setInputVal({
-            ...inputVal,
-            [e.target.id]: e.target.value
-        })
-        setError({
-            ...error,
-            [e.target.id]: false
-        })
+        setEmail(e.target.value);
+        setError(false)
     }
 
     return (
@@ -39,15 +36,15 @@ function ForgotPasswordForm(props) {
                 type={text.email}
                 placeholder={'Email'}
                 required
-                value={inputVal.email}
-                error={error.email}
+                value={email}
+                error={error}
                 onChange={handleChange}
             />
             {/* setting marginTop to 34 because input field have 16px bottom margin */}
             <Button variant='contained' fullWidth sx={{ mt: '34px' }} type='submit'>
                 Send
             </Button>
-            <Button variant='outlined' fullWidth sx={{ mt: '16px' }}>
+            <Button variant='outlined' fullWidth sx={{ mt: '16px' }} onClick={() => navigate(routeConstant.login)}>
                 Back
             </Button>
         </Box>

@@ -6,6 +6,9 @@ import AuthLayout from './components/Layout/AuthLayout/AuthLayout';
 import { ThemeProvider } from '@emotion/react';
 import { mainTheme } from './utils/main-theme/main-theme';
 import ErrorPage from './pages/ErrorPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ProtectRoute from './routes/protectRoute';
 
 function App() {
   return (
@@ -18,11 +21,13 @@ function App() {
               route.layout === routeConstant.authLayout ?
                 <Route path={route.path} element={<AuthLayout Component={route.component} />} key={i} />
                 :
-                <Route path={route.path} element={route.component} key={i} />
+
+                <Route path={route.path} element={<ProtectRoute>{route.component}</ProtectRoute>} key={i} />
             )}
             <Route path='*' element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
+        <ToastContainer />
       </ThemeProvider >
     </div>
   );

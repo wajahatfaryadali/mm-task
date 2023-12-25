@@ -12,9 +12,16 @@ function InputField(props) {
     type = 'text',
     required = false,
     name,
+    isPasswordSame,
     error,
     ...rest
   } = props;
+
+  let helperText = error ? `${placeholder} field is required!` : '';
+
+  if (name === 'confirmPassword' && !isPasswordSame) {
+    helperText = "Confirm password should match password";
+  }
 
 
   return (
@@ -53,8 +60,9 @@ function InputField(props) {
                 />
               </InputAdornment> : "",
         }}
-        error={error && true}
-        helperText={error ? `${placeholder} field is required!` : ""}
+        error={(error || (name === 'confirmPassword' && !isPasswordSame)) && true}
+        helperText={helperText}
+
         {...rest}
       />
     </>

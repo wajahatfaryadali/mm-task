@@ -15,7 +15,6 @@ function LoginForm(props) {
     handleSubmit,
     error,
     setError,
-    loading
   } = props;
 
   // console.log('**** error *** ', error)
