@@ -7,7 +7,6 @@ import { toaster } from '../../../utils/helpers/toaster'
 import { base_url, constants } from '../../../store/constants'
 import { routeConstant } from '../../../routes/routeConstants'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const CreateNewPassword = () => {
@@ -29,7 +28,6 @@ const CreateNewPassword = () => {
     };
   }, [location.state?.token.data]);
 
-
   const [error, setError] = useState({
     password: false,
     confirmPassword: false,
@@ -46,12 +44,11 @@ const CreateNewPassword = () => {
           },
         }
       );
-      console.log('resprespresp ********* ', resp)
+      // console.log('resprespresp ********* ', resp)
       const msg = "Password Updated Successfully!"
       toaster.show("success", msg, 3000)
       navigate(routeConstant.login);
     } catch (error) {
-
       if (error.response && error.response.data && error.response.data.message) {
         const msg = error.response.data.message;
         toaster.show("error", msg, 3000)
@@ -64,11 +61,8 @@ const CreateNewPassword = () => {
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
-
     let newErrorState = {};
-
     Object.keys(inputVal).forEach(key => {
       newErrorState[key] = inputVal[key].trim() === '';
     });
@@ -76,43 +70,15 @@ const CreateNewPassword = () => {
     const checkPassword = validatePassword(inputVal.password)
     setError(newErrorState);
     setIsPasswordSame(isValid)
-
     if (!checkPassword) {
       const passwordMsg = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
       toaster.show('error', passwordMsg, 5000)
     }
-
     const isAnyFieldEmpty = Object.values(newErrorState).some(value => value);
     if (!isAnyFieldEmpty && isValid && checkPassword) {
       createNewPassApi();
     }
   }
-
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let newErrorState = {};
-  //   Object.keys(inputVal).forEach(key => {
-  //     if (key !== 'country') {
-  //       newErrorState[key] = inputVal[key].trim() === '';
-  //     }
-  //   });
-  //   const isValid = checkPasswordSame(inputVal.password, inputVal.confirmPassword);
-  //   const checkPassword = validatePassword(inputVal.password)
-  //   if (!checkPassword) {
-  //     const passwordMsg = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
-  //     toaster.show('error', passwordMsg, 5000)
-  //   }
-
-  //   setIsPasswordSame(isValid)
-  //   setError(newErrorState);
-
-  //   const isAnyFieldEmpty = Object.values(newErrorState).some(value => value);
-  //   if (!isAnyFieldEmpty && isValid && checkPassword) {
-  //     dispatchSignUp()
-  //   }
-  // }
   return (
     <>
       <CreateNewPasswordForm

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import classes from "./index.module.css";
 import robot from "../../../assets/svgs/robo.svg"
 import { useDeviceType } from '../../../hooks/useDeviceType';

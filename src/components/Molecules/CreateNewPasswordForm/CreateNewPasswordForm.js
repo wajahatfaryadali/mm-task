@@ -1,9 +1,7 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import InputField from '../../Atoms/InputField/InputField';
-
 import { text } from '../../../utils/constants/strings';
-
 
 function CreateNewPasswordForm(props) {
     const {

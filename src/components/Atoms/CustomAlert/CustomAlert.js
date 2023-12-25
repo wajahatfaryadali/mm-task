@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Typography } from '@mui/material'
+import { Alert } from '@mui/material'
 import infoIcon from '../../../assets/svgs/info-icon.svg'
 
 export const CustomAlert = ({ message }) => {

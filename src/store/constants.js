@@ -4,7 +4,7 @@ export const constants = {
     user: "/users",
     login: "/login",
     signUp: "/signUp",
-    resetPassword: "/resetPassword", // patch
+    resetPassword: "/resetPassword", 
     forgotPassword: "/forgotPassword",
     verifyCode: "/verifyCode",
     blogs: "/blogs"

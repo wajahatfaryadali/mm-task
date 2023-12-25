@@ -1,9 +1,4 @@
 import { toast } from "react-toastify";
-
-// toaster.show('error', 'message', 3000)
-// toaster.show('success', 'message', 3000)
-// toaster.show('warning', 'message', 3000)
-
 export const toaster = {
     show: (type, message, time) => {
 

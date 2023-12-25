@@ -6,8 +6,6 @@ import Loader from '../../../components/Atoms/Loader/Loader';
 import axios from 'axios';
 import { base_url, constants } from '../../../store/constants';
 import { routeConstant } from '../../../routes/routeConstants';
-import { loginSuccess } from '../../../store/slices/authSlice/authSlice';
-import { useDispatch } from 'react-redux';
 
 const Otp = () => {
   const location = useLocation();
@@ -15,7 +13,6 @@ const Otp = () => {
   const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState(location.state?.email || '');
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setEmail(location.state?.email || '');
@@ -29,8 +26,7 @@ const Otp = () => {
     try {
       const data = await axios.post(base_url + constants.verifyCode, { email, code: otp });
       toaster.show("success", data.data.message, 3000);
-      console.log('authTokenauthTokenauthTokenauthToken *******0 ', data.data)
-      // dispatch(loginSuccess(data.data))
+      // console.log('authTokenauthTokenauthTokenauthToken *******0 ', data.data)
       navigate(routeConstant.createNewPassword, { state: { token: data.data } })
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
@@ -43,7 +39,6 @@ const Otp = () => {
     }
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!otp) {
@@ -55,7 +50,6 @@ const Otp = () => {
       verifyCodeApi();
     }
   }
-
   return (
     <>
       <OtpForm

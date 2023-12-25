@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import InputField from '../../Atoms/InputField/InputField';
-import OrDivider from '../../Atoms/OrDivider/OrDivider';
 
 import { text } from '../../../utils/constants/strings';
 import { routeConstant } from '../../../routes/routeConstants';

@@ -24,8 +24,6 @@ export const getIcon = (type) => {
             return country;
         case text.selectArrows:
             return {arrowDown, arrowUp};
-
-
         default:
             return ''
     }
