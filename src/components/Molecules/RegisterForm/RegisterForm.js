@@ -7,6 +7,7 @@ import { text } from '../../../utils/constants/strings';
 import { Link } from 'react-router-dom';
 import { routeConstant } from '../../../routes/routeConstants';
 import CustomSelect from '../../Atoms/CustomSelect/CustomSelect';
+import FormHeader from '../../Atoms/FormHeader/FormHeader';
 
 function RegisterForm(props) {
   const countryList = ['Pakistan', 'England', 'France', 'Australia']
@@ -35,9 +36,7 @@ function RegisterForm(props) {
 
   return (
     <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
-      <Typography variant='h1' textTransform={'capitalize'} mb={'64px'}>
-        create account
-      </Typography>
+      <FormHeader title="create account" />
       <InputField
         type={'text'}
         name={text.name}

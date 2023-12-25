@@ -5,6 +5,7 @@ import InputField from '../../Atoms/InputField/InputField';
 import { text } from '../../../utils/constants/strings';
 import { routeConstant } from '../../../routes/routeConstants';
 import { useNavigate } from 'react-router-dom';
+import FormHeader from '../../Atoms/FormHeader/FormHeader';
 
 function ForgotPasswordForm(props) {
     const {
@@ -25,9 +26,7 @@ function ForgotPasswordForm(props) {
 
     return (
         <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
-            <Typography variant='h1' textTransform={'capitalize'} mb={'24px'}>
-                Forgot Password
-            </Typography>
+            <FormHeader mb={'24px'} title={'Forgot Password'} />
             <Typography color={'primary.textGray'} variant='subtitle2' mb={'32px'}>
                 Seems you forget your password, we’ll send a recovery code to your email
             </Typography>

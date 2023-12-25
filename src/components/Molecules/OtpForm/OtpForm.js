@@ -8,6 +8,7 @@ import classes from './index.module.css'
 import { CustomAlert } from '../../Atoms/CustomAlert/CustomAlert';
 import { routeConstant } from '../../../routes/routeConstants';
 import { Link, useNavigate } from 'react-router-dom';
+import FormHeader from '../../Atoms/FormHeader/FormHeader';
 
 function OtpForm(props) {
     const nagigate = useNavigate();
@@ -25,10 +26,8 @@ function OtpForm(props) {
 
     return (
         <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
-            <Typography variant='h1' textTransform={'capitalize'} mb={'32px'}>
-                {/* in design there is written Forgot Password but what about Reset Password :) */}
-                Verify Otp
-            </Typography>
+            {/* in design there is written Forgot Password but what about Reset Password :) */}
+            <FormHeader mb='32px' title={'Verify Otp'} />
             <CustomAlert
                 message={"We have send you 6 digits verification code to your email. Please kindly check"}
             />
@@ -60,7 +59,7 @@ function OtpForm(props) {
             <Button variant='outlined' fullWidth sx={{ mt: '16px' }} onClick={() => nagigate(routeConstant.forgotPassword)}>
                 Back
             </Button>
-        </Box>
+        </Box >
     );
 }
 

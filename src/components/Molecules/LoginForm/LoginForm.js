@@ -6,6 +6,7 @@ import OrDivider from '../../Atoms/OrDivider/OrDivider';
 import { text } from '../../../utils/constants/strings';
 import { Link } from 'react-router-dom';
 import { routeConstant } from '../../../routes/routeConstants';
+import FormHeader from '../../Atoms/FormHeader/FormHeader';
 
 function LoginForm(props) {
   const {
@@ -31,9 +32,7 @@ function LoginForm(props) {
 
   return (
     <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
-      <Typography variant='h1' textTransform={'capitalize'} mb={'64px'}>
-        Welcome Back
-      </Typography>
+      <FormHeader title={'Welcome Back '} />
       <InputField
         type={text.email}
         placeholder={'Email'}

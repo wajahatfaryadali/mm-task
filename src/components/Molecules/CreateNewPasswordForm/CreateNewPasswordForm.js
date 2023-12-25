@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import InputField from '../../Atoms/InputField/InputField';
 import { text } from '../../../utils/constants/strings';
+import FormHeader from '../../Atoms/FormHeader/FormHeader';
 
 function CreateNewPasswordForm(props) {
     const {
@@ -29,10 +30,8 @@ function CreateNewPasswordForm(props) {
 
     return (
         <Box width={width} component={'form'} textAlign={'center'} onSubmit={handleSubmit}>
-            <Typography variant='h1' textTransform={'capitalize'} mb={'64px'}>
-                {/* in design there is written Forgot Password but what about Reset Password :) */}
-                Reset password
-            </Typography>
+            {/* in design there is written Forgot Password but what about Reset Password :) */}
+            <FormHeader title={'Reset password'} mb='64px' />
             <InputField
                 type={text.password}
                 placeholder={'Password'}
